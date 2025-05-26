@@ -1,0 +1,14 @@
+@CarvedRockFitness.API_HostAddress = https://localhost:7009
+
+GET {{CarvedRockFitness.API_HostAddress}}/routines/1
+Accept: application/json
+
+###
+
+GET {{CarvedRockFitness.API_HostAddress}}/routines/10
+Accept: application/json
+
+###
+
+GET {{CarvedRockFitness.API_HostAddress}}/users/1
+Accept: application/json
