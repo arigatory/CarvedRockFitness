@@ -1,0 +1,15 @@
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    platform: linux/amd64  # Needed for Apple Silicon Macs
+    environment:
+      ACCEPT_EULA: "Y"     # Accept license terms
+      SA_PASSWORD: "YourStrong@Passw0rd"  # Password for 'sa' account
+      MSSQL_PID: "Developer"  # Free developer edition
+    ports:
+      - "1433:1433"  # Default SQL Server port
+    volumes:
+      - mssql_data:/var/opt/mssql  # Persistent storage
+
+volumes:
+  mssql_data:
