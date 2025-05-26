@@ -18,7 +18,9 @@ public class RoutinesController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    [Authorize(Policy = PolicyMetadata.MustOwnRoutine)]
+    // [Authorize(Policy = PolicyMetadata.MustOwnRoutine)]
+    // [MustTrainRoutineOwner("Trainer", "Trainee")]
+    [Authorize(Policy = PolicyMetadata.MustOwnRoutineOrTrainOwner)]
     public async Task<IActionResult> GetRoutineById(int id)
     {
         var routine = await _context.Routines

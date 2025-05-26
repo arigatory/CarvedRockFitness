@@ -14,6 +14,8 @@ builder.Services.AddDbContext<CarvedRockFitnessDbContext>(
         builder.Configuration["ConnectionStrings:CarvedRockFitnessDB"]));
 
 builder.Services.AddScoped<IAuthorizationHandler, MustOwnRoutineHandler>();
+builder.Services.AddScoped<IAuthorizationHandler, MustTrainRoutineOwnerHandler>();
+builder.Services.AddScoped<IAuthorizationHandler, EitherRequirementHandler>();
 
 builder.Services.AddAuthorization(authorizationOptions =>
 {
@@ -22,6 +24,14 @@ builder.Services.AddAuthorization(authorizationOptions =>
         policyBuilder.RequireAuthenticatedUser();
         policyBuilder.AddRequirements(new MustOwnRoutineRequirement());
 
+    });
+
+    authorizationOptions.AddPolicy(PolicyMetadata.MustOwnRoutineOrTrainOwner, policyBuilder =>
+    {
+        policyBuilder.RequireAuthenticatedUser();
+        policyBuilder.AddRequirements(new EitherRequirementRequirement(
+            new MustOwnRoutineRequirement(),
+            new MustTrainRoutineOwnerRequirement("Trainer", "Trainee")));
     });
 });
 
