@@ -1,14 +1,14 @@
-@CarvedRockFitness.API_HostAddress = https://localhost:7009
+@CarvedRockFitnessAPI_HostAddress = https://localhost:7009
 
-GET {{CarvedRockFitness.API_HostAddress}}/routines/1
+GET {{CarvedRockFitnessAPI_HostAddress}}/routines/1
 Accept: application/json
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQiLCJzdWIiOiI0IiwianRpIjoiMjM2YmMxMmIiLCJhdWQiOiJjYXJ2ZWRyb2NrZml0bmVzc2FwaSIsIm5iZiI6MTc0ODI5OTQ4OSwiZXhwIjoxNzU2MjQ4Mjg5LCJpYXQiOjE3NDgyOTk0OTAsImlzcyI6ImRvdG5ldC11c2VyLWp3dHMifQ.AXUCUbAP1B_AVegV3IhGSN-OpAVGd7vE5OjW5bjV5SA
 ###
 
-GET {{CarvedRockFitness.API_HostAddress}}/routines/10
+GET {{CarvedRockFitnessAPI_HostAddress}}/routines/10
 Accept: application/json
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQiLCJzdWIiOiI0IiwianRpIjoiMjM2YmMxMmIiLCJhdWQiOiJjYXJ2ZWRyb2NrZml0bmVzc2FwaSIsIm5iZiI6MTc0ODI5OTQ4OSwiZXhwIjoxNzU2MjQ4Mjg5LCJpYXQiOjE3NDgyOTk0OTAsImlzcyI6ImRvdG5ldC11c2VyLWp3dHMifQ.AXUCUbAP1B_AVegV3IhGSN-OpAVGd7vE5OjW5bjV5SA
 ###
 
-GET {{CarvedRockFitness.API_HostAddress}}/users/1
+GET {{CarvedRockFitnessAPI_HostAddress}}/users/1
 Accept: application/json

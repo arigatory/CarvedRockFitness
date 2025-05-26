@@ -1,4 +1,6 @@
+using CarvedRockFitness.API.Authorization;
 using CarvedRockFitness.API.DbContexts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,9 +15,10 @@ public class RoutinesController : ControllerBase
     public RoutinesController(CarvedRockFitnessDbContext context)
     {
         _context = context;
-    }  
+    }
 
     [HttpGet("{id}")]
+    [Authorize(Policy = PolicyMetadata.MustOwnRoutine)]
     public async Task<IActionResult> GetRoutineById(int id)
     {
         var routine = await _context.Routines
