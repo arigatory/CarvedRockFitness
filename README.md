@@ -17,4 +17,5 @@ dotnet user-jwts create --project CarvedRockFitness.API --audience carvedrockfit
 
 ```
 user-jwts create --project CarvedRockFitness.API --audience carvedrockfitnessapi --name 2
+user-jwts create --project CarvedRockFitness.API --audience carvedrockfitnessapi --role=Admin
 ```

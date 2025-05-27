@@ -10,5 +10,19 @@ Accept: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQiLCJzdWIiOiI0IiwianRpIjoiMjM2YmMxMmIiLCJhdWQiOiJjYXJ2ZWRyb2NrZml0bmVzc2FwaSIsIm5iZiI6MTc0ODI5OTQ4OSwiZXhwIjoxNzU2MjQ4Mjg5LCJpYXQiOjE3NDgyOTk0OTAsImlzcyI6ImRvdG5ldC11c2VyLWp3dHMifQ.AXUCUbAP1B_AVegV3IhGSN-OpAVGd7vE5OjW5bjV5SA
 ###
 
-GET {{CarvedRockFitnessAPI_HostAddress}}/users/1
+GET {{CarvedRockFitnessAPI_HostAddress}}/users/10
 Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Iml2YW4iLCJzdWIiOiJpdmFuIiwianRpIjoiOGQ5ZTUzZDciLCJyb2xlIjoiQWRtaW4iLCJhdWQiOiJjYXJ2ZWRyb2NrZml0bmVzc2FwaSIsIm5iZiI6MTc0ODM2NjUzOCwiZXhwIjoxNzU2MzE1MzM4LCJpYXQiOjE3NDgzNjY1MzksImlzcyI6ImRvdG5ldC11c2VyLWp3dHMifQ.2Y9YIjl92QkRFO4uvVciMlpEoLbXGyD-VlnIbhphTbU
+###
+
+PUT {{CarvedRockFitnessAPI_HostAddress}}/users/10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Iml2YW4iLCJzdWIiOiJpdmFuIiwianRpIjoiMjRhNmZmOTQiLCJyb2xlIjoiQWRtaW4iLCJjbGVhcmFuY2UiOiJlZGl0IiwiYXVkIjoiY2FydmVkcm9ja2ZpdG5lc3NhcGkiLCJuYmYiOjE3NDgzODI2MDEsImV4cCI6MTc1NjMzMTQwMSwiaWF0IjoxNzQ4MzgyNjAxLCJpc3MiOiJkb3RuZXQtdXNlci1qd3RzIn0.nlfaMaXgeCNGgD651s8uljJ6Mn7d_NA8XIjny34n2Rk
+Content-Type: application/json
+
+{
+    "name": "Sr. User",
+    "email": "sr.user@example.com",
+    "role": "Trainee",
+    "trainerId": 2
+}
+###

@@ -1,5 +1,7 @@
+using CarvedRockFitness.API.Authorization;
 using CarvedRockFitness.API.DbContexts;
 using CarvedRockFitness.API.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +9,7 @@ namespace CarvedRockFitness.API.Controllers;
 
 [ApiController]
 [Route("users")]
+[Authorize(Roles = "Admin")]
 public class UsersController : ControllerBase
 {
     private readonly CarvedRockFitnessDbContext _context;
@@ -67,6 +70,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Policy = PolicyMetadata.MustBeAdminWithEditClearance)]
     public async Task<IActionResult> CreateUser([FromBody] User user)
     {
         // in real-world scenarios, you would want to validate the incoming data 
@@ -89,8 +93,9 @@ public class UsersController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize(Policy = PolicyMetadata.MustBeAdminWithEditClearance)]
     public async Task<IActionResult> UpdateUser(int id, [FromBody] User updatedUser)
-    {        
+    {
         // in real-world scenarios, you would want to validate the incoming data 
         var user = await _context.Users.FindAsync(id);
         if (user == null)
@@ -109,6 +114,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Policy = PolicyMetadata.MustBeAdminWithEditClearance)]
     public async Task<IActionResult> DeleteUser(int id)
     {
         var user = await _context.Users.FindAsync(id);

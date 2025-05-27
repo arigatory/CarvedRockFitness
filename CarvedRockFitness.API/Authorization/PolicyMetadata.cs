@@ -4,4 +4,5 @@ public static class PolicyMetadata
 {
     public const string MustOwnRoutine = "MustOwnRoutine";
     public const string MustOwnRoutineOrTrainOwner = "MustOwnRoutineOrTrainOwner";
+    public const string MustBeAdminWithEditClearance = "MustBeAdminWithEditClearance";
 }

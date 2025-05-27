@@ -33,10 +33,23 @@ builder.Services.AddAuthorization(authorizationOptions =>
             new MustOwnRoutineRequirement(),
             new MustTrainRoutineOwnerRequirement("Trainer", "Trainee")));
     });
+
+    authorizationOptions.AddPolicy(PolicyMetadata.MustBeAdminWithEditClearance, policyBuilder =>
+    {
+        policyBuilder.RequireAuthenticatedUser();
+        policyBuilder.RequireRole("Admin");
+        policyBuilder.RequireClaim("clearance", "edit");
+    });
 });
 
 builder.Services.AddAuthentication("Bearer")
-    .AddJwtBearer(options => options.MapInboundClaims = false);
+    .AddJwtBearer(options =>
+{
+    options.MapInboundClaims = false;
+    options.TokenValidationParameters.NameClaimType = "sub";
+    options.TokenValidationParameters.RoleClaimType = "role";
+}
+    );
 
 var app = builder.Build();
 
